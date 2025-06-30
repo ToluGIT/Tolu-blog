@@ -1,0 +1,32 @@
+---
+import { Settings } from '@/config'
+
+const ID = Settings?.GoogleAnalytics?.id
+const enable = Settings?.GoogleAnalytics?.enable
+---
+
+{
+    enable && (
+        <>
+            <!-- Google tag (gtag.js) with debug -->
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${ID}`}></script>
+            <script define:vars={{ ID }}>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                
+                // Enable debug mode and add console logs
+                console.log('Initializing Google Analytics with ID:', ID);
+                gtag('config', ID, {
+                    debug_mode: true,
+                    transport_url: 'https://www.google-analytics.com'
+                });
+                
+                // Log when GA is loaded
+                window.addEventListener('load', () => {
+                    console.log('Google Analytics script loaded');
+                });
+            </script>
+        </>
+    )
+}

@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import BlogInsight from '@components/blog/BlogInsight.astro'
+import ProjectCard from '@components/projects/ProjectCard.astro'
+import HeroSection from '@components/ui/sections/HeroSection.astro'
+import FeaturesSection from '@components/ui/sections/FeaturesSection.astro'
+import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
+import SimpleYoutubeBtn from '@components/ui/buttons/SimpleYoutubeBtn.astro'
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro'
+import blogHeroImg from '@images/newavi.png'
+
+const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
+    (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 3);
+
+const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).slice(0, 3);
+---
+
+<BaseLayout title="Tolu Banji's Blog - Security Engineer" description="Security Engineer. I think like an attacker to build better defenses. Automating security into pipelines, break things before production does, and share what I learn for others facing the same challenges.">
+    <HeroSection
+        title=`Hello, <span class="text-blue-500 dark:text-blue-400">I'm Tolu.</span>`
+        subTitle="Security Engineer. I think like an attacker to build better defenses. Automating security into pipelines, break things before production does, and share what I learn for others facing the same challenges."
+        src={blogHeroImg}
+        alt="Tolu's blog"
+    />
+
+    <FeaturesSection />
+
+
+    <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+        <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+            <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+                Recent Post
+            </h2>
+            <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+                Always building defenses in my head. Documenting them? That's my weakness.
+            </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {
+                posts.map(b => (
+                    <BlogInsight blog={b} />
+                ))
+            }
+        </div>
+        <div class="mt-8 flex justify-center">
+            <PrimaryCTA url="/posts" title="View All Posts" />
+        </div>
+    </section>
+
+    <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+        <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+            <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+                Side Projects & Tooling
+            </h2>
+            <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+                Some of my recent builds and contributions ~ worth sharing
+            </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => (
+                <ProjectCard project={project} />
+            ))}
+        </div>
+        <div class="mt-8 flex justify-center">
+            <PrimaryCTA url="/projects" title="View All Projects" />
+        </div>
+    </section>
+    
+    <HeroSectionAlt
+        title="My code lives on GitHub"
+        subTitle="I build. I experiment. I sometimes even document it. Check out my GitHub to see what I'm up to."
+        url="https://github.com/ToluGIT"
+    />
+
+    <!-- <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+        <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+            <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+                Subscribe to my YouTube
+            </h2>
+            <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+                Tutorials, tech talks, and behind-the-scenes of my DevOps journey.
+            </p>
+        </div>
+        
+        <div class="mx-auto grid max-w-5xl gap-6 sm:grid-cols-1 md:grid-cols-2">
+            <div class="aspect-video overflow-hidden rounded-xl shadow-lg">
+                <iframe 
+                    class="h-full w-full"
+                    src="https://www.youtube.com/embed/x-iHbFicvH4" 
+                    
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="flex flex-col justify-center">
+                <h3 class="mb-2 text-xl font-bold text-neutral-800 dark:text-neutral-200">Latest Video</h3>
+                <p class="mb-4 text-pretty text-neutral-600 dark:text-neutral-400">
+                    Check out my latest content where I break down everything you need to know—from what containers are to running your first Docker container. 
+                </p>
+                <div class="inline-block">
+                    <SimpleYoutubeBtn url="https://youtube.com/@aminalawal3999" title="Subscribe Now" />
+                </div>
+            </div>
+        </div>
+    </section> -->
+</BaseLayout>
