@@ -2,6 +2,10 @@
 import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro'
 import SecondaryCTA from '@components/ui/buttons/SecondaryCTA.astro'
 import Image from '@components/ui/images/Image.astro'
+import InteractiveAvatar from '@components/ui/InteractiveAvatar.tsx'
+import avatar1 from '@images/newavi.png'
+import avatar2 from '@images/newavi2.png'
+import avatar3 from '@images/newavi3.png'
 
 const {
     title,
@@ -45,17 +49,12 @@ interface Props {
 
     <div class="w-full hidden md:block">
         <div class="top-12 overflow-hidden w-full flex justify-center">
-            {src && alt && (
-                <Image
-                    src={src}
-                    alt={alt}
-                    class="h-full w-[320px] scale-100 object-cover object-center"
-                    draggable="false"
-                    loading="eager"
-                    format="avif"
-                    disableBlur={true}
-                />
-            )}
+            <InteractiveAvatar 
+                className="h-full w-[320px] scale-100 object-cover object-center rounded-lg"
+                alt="Tolu's avatar"
+                images={[avatar1.src, avatar2.src, avatar3.src]}
+                client:load
+            />
         </div>
     </div>
 </section>
