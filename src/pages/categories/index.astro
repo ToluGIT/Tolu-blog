@@ -21,13 +21,15 @@ const postMap: Map<string, CollectionEntry<'posts'>[]> = (await getCollection('p
     return acc
 }, new Map<string, CollectionEntry<'posts'>[]>())
 
-const categories = await getCollection('categories')
-const description = 'Here are some categories that Amina is interested in.'
+const categories = (await getCollection('categories')).sort((a, b) => 
+    a.data.title.localeCompare(b.data.title)
+)
+const description = "Tolu's interests and explorations"
 const URL = Astro.url.href
 ---
 
 <BaseLayout
-    title="All Categories"
+    title="All Domains"
     description={description}
     structuredData={{
         '@context': 'https://schema.org',
@@ -35,7 +37,7 @@ const URL = Astro.url.href
         'inLanguage': 'en-US',
         '@id': URL,
         'url': URL,
-        'name': `All Categories - ${SITE.title}`,
+        'name': `All Domains - ${SITE.title}`,
         'description': description,
         'isPartOf': {
             '@type': 'WebSite',
@@ -46,7 +48,7 @@ const URL = Astro.url.href
     }}
 
 >
-    <MainSection title="Categories" subTitle={description} />
+    <MainSection title="Domains" subTitle={description} />
 
     <section class="mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:pt-10 lg:py-14 2xl:max-w-full">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">

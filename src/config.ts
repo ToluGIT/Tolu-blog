@@ -10,7 +10,7 @@ export const SITE: Site = {
 
 export const NavigationLinks: NavigationLink[] = [
     { name: 'Posts', url: '/posts' },
-    { name: 'Categories', url: '/categories' },
+    { name: 'Domains', url: '/categories' },
     { name: 'Timeline', url: '/timeline' },
     { name: 'Projects', url: '/projects' },
     { name: 'Portfolio', url: 'https://portfolio.aminalawal.com' },
@@ -23,7 +23,7 @@ export const FooterLinks = [
         links: [
             { name: 'Posts', url: '/posts' },
             { name: 'Timeline', url: '/timeline' },
-            { name: 'Categories', url: '/categories' },
+            { name: 'Domains', url: '/categories' },
             { name: 'Projects', url: '/projects' },
             { name: 'Portfolio', url: 'https://portfolio.aminalawal.com' },
         ],
