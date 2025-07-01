@@ -35,8 +35,26 @@ const URL = Astro.url.href
         <div class="max-w-3xl mx-auto mb-10 lg:mb-14">
             <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">Timeline</h2>
             <p class="mt-4 text-lg group text-pretty text-neutral-600 dark:text-neutral-400">
-                So far, I've published <span class="group-hover:text-blue-500 group-hover:dark:text-blue-400">{posts.length}</span> articles ~ progress bar: ▓▓▓░░░
+                So far, I've published <span class="group-hover:text-blue-500 group-hover:dark:text-blue-400">{posts.length}</span> articles ~ blame the caffeine ☕
             </p>
+            <!-- Enhanced Progress Bar -->
+            <div class="mt-4 space-y-2">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-fading-icon lucide-clock-fading"><path d="M12 2a10 10 0 0 1 7.38 16.75"/><path d="M12 6v6l4 2"/><path d="M2.5 8.875a10 10 0 0 0-.5 3"/><path d="M2.83 16a10 10 0 0 0 2.43 3.4"/><path d="M4.636 5.235a10 10 0 0 1 .891-.857"/><path d="M8.644 21.42a10 10 0 0 0 7.631-.38"/></svg>
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Writing Progress</span>
+                </div>
+                <div class="w-full bg-neutral-300 dark:bg-neutral-700 rounded-full h-3">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full flex items-center justify-end pr-2" style={`width: ${Math.min((posts.length / 50) * 100, 100)}%`}>
+                        <span class="text-xs font-bold text-white">{posts.length}</span>
+                    </div>
+                </div>
+                <div class="flex justify-between text-xs text-neutral-500 dark:text-neutral-400">
+                    <span>0 articles</span>
+                    <span>Target: 50+ articles</span>
+                </div>
+            </div>
         </div>
         {posts.map(p => <BlogTimeline blog={p} />)}
     </section>

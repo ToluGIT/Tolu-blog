@@ -1,6 +1,6 @@
 ---
 title: "From Zero to Building a Microservice Platform"
-description: "You've just been tasked with creating a scalable application that needs to handle growing traffic, maintain data consistency, and provide real-time insights. You could build a monolith, but you know better, but where do you even start?"
+description: "You've just been tasked with creating a scalable application that needs to handle growing traffic, maintain data consistency, and provide real-time insights. You know a monolith won't scale, but the microservices path seems overwhelming. Let's break it down."
 pubDate: "2025-04-05 13:00:00"
 category: "containers-orchestration"
 banner: "@images/banners/dockerms.png"

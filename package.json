@@ -1,12 +1,12 @@
 {
   "packageManager": "pnpm@9.10.0",
-  "name": "aminalawal.com",
+  "name": "tolubanji.com",
   "type": "module",
   "version": "1.0.0",
-  "homepage": "https://aminalawal.com",
+  "homepage": "https://tolubanji.com",
   "bugs": {
     "url": "https://github.com/Amiynarh/aminalawal-blog/issues",
-    "email": "hello@aminalawal.com"
+    "email": "hello@tolubanji.com"
   },
   "repository": {
     "type": "git",
@@ -14,9 +14,9 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Amina Lawal",
-    "email": "hello@aminalawal.com",
-    "url": "https://aminalawal.com"
+    "name": "Tolu Banji",
+    "email": "hello@tolubanji.com",
+    "url": "https://tolubanji.com"
   },
   "scripts": {
     "dev": "astro dev",

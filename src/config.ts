@@ -1,10 +1,10 @@
 import type { NavigationLink, Site } from './types.ts'
 
 export const SITE: Site = {
-    author: 'Amina Lawal',
-    url: 'https://aminalawal.com',
-    title: 'Amina Lawal',
-    description: 'Amina\'s personal blog, I enjoy the process of building something using any technology stack',
+    author: 'Tolu Banji',
+    url: 'https://tolubanji.com',
+    title: 'Tolu Banji',
+    description: 'A security engineer\'s thoughts on DevSecOps, automation, and building things that don\'t break', 
     shortDescription: '',
 }
 
@@ -13,7 +13,7 @@ export const NavigationLinks: NavigationLink[] = [
     { name: 'Domains', url: '/categories' },
     { name: 'Timeline', url: '/timeline' },
     { name: 'Projects', url: '/projects' },
-    { name: 'Portfolio', url: 'https://portfolio.aminalawal.com' },
+    { name: 'Portfolio', url: 'https://portfolio.tolubanji.com' },
     // { name: 'Friends', url: '/friends' },
 ]
 
@@ -25,7 +25,7 @@ export const FooterLinks = [
             { name: 'Timeline', url: '/timeline' },
             { name: 'Domains', url: '/categories' },
             { name: 'Projects', url: '/projects' },
-            { name: 'Portfolio', url: 'https://portfolio.aminalawal.com' },
+            { name: 'Portfolio', url: 'https://portfolio.tolubanji.com' },
         ],
     },
     {
@@ -33,8 +33,8 @@ export const FooterLinks = [
         links: [
             { name: 'RSS', url: '/rss.xml' },
             { name: 'Site Map', url: '/sitemap-index.xml' },
-            { name: 'Twitter', url: 'https://x.com/amiynarh' },
-            { name: 'LinkedIn', url: 'https://linkedin.com/in/aminalawalofficial' },
+            { name: 'Twitter', url: 'https://x.com/toluid_' },
+            { name: 'LinkedIn', url: 'https://www.linkedin.com/in/tolubanji' },
         ],
     },
 ]
