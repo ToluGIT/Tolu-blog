@@ -1,9 +1,8 @@
 ---
-title: "DevOps for Solo Devs (Coming Soon)"
-description: "A complete, production-ready CI/CD & Cloud Infrastructure template for solo developers and indie hackers."
-url: "https://github.com/Amiynarh/Solo-Devs"
-repo: "amiynarh/k8s-deploy-tool"
-tech: ["GitHub Actions", "Kubernetes", "Docker", "Terraform", "TLS/DNS", "Monitoring", "Secrets"]
+title: "CredScan"
+description: "Credential and secret detection tool designed to identify sensitive information in your codebase."
+url: "https://github.com/ToluGIT/credscan"
+tech: ["Python", "Pre-commit hook", "GIT history", "Credentials", "Secrets"]
 banner: "@images/projects/solodevs.png"
 featured: true
 ---

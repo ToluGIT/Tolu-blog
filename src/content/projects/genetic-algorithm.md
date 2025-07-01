@@ -1,12 +1,9 @@
 ---
-title: "Genetic Algorithm"
-description: "An intelligent timetable generator powered by Genetic Algorithm to generate university timetables while satisfying various constraints."
-url: "https://github.com/Amiynarh/TimetableScheduler-Genetic-Algorithm"
-repo: "amiynarh/timetable-scheduler"
-tech: ["AI", "Flask", "Genetic Algorithm"]
+title: "Microservice Project"
+description: "Three-tier Docker microservices template with monitoring and observability stack. For learning and real-world adoption."
+url: "https://github.com/ToluGIT/docker-ms-architecture"
+tech: ["Docker", "Grafana", "Prometheus", "Jaeger", "PostgreSQL", "Nginx"]
 banner: "@images/projects/timetablescheduler.jpeg"
 featured: true
 ---
-
-An intelligent timetable generator powered by Genetic Algorithm. This project utilizes a genetic algorithm to generate university timetables while satisfying various constraints.
 

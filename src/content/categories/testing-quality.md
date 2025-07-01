@@ -1,6 +1,6 @@
 ---
 title: Testing & Quality
 slug: testing-quality
-description: Testing methodologies and quality assurance
-lastUpdated: "2025-04-20"
+description: Security testing, quality assurance, and automated testing strategies
+lastUpdated: "2025-01-01"
 ---

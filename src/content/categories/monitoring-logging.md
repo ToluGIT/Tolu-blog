@@ -1,6 +1,6 @@
 ---
 title: Monitoring & Logging
 slug: monitoring-logging
-description: System observability and logging tools
-lastUpdated: "2025-04-20"
+description: Security monitoring, logging, observability, and incident detection
+lastUpdated: "2025-01-01"
 ---

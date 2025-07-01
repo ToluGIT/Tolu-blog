@@ -1,6 +1,6 @@
 ---
 title: AWS
 slug: aws
-description: Amazon Web Services cloud platform
-lastUpdated: "2025-04-19"
+description: Amazon Web Services security, architecture, and DevOps practices
+lastUpdated: "2025-01-01"
 ---

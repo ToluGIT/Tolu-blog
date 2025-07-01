@@ -29,7 +29,7 @@ const formatedHeadings = headings.reduce((acc, obj) => {
             formatedHeadings.map((heading: Headings) => (
                 <li>
                     <a
-                        class="heading-path outline-none hover:text-orange-500 focus:text-orange-500"
+                        class="heading-path outline-none hover:text-blue-500 focus:text-blue-500"
                         href=`#${heading.current.slug}`
                     >
                         {heading.current.text}
@@ -39,7 +39,7 @@ const formatedHeadings = headings.reduce((acc, obj) => {
                             <ol class="list-inside ps-5 mt-2">
                                 <li>
                                     <a
-                                        class="heading-path outline-none hover:text-orange-500 focus:text-orange-500"
+                                        class="heading-path outline-none hover:text-blue-500 focus:text-blue-500"
                                         href=`#${child.slug}`
                                     >
                                         {child.text}

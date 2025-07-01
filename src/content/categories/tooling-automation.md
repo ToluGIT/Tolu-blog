@@ -1,6 +1,6 @@
 ---
 title: Tooling & Automation
 slug: tooling-automation
-description: Development tools and automation scripts
-lastUpdated: "2025-04-20"
+description: DevSecOps toolchains, automation frameworks, and workflow optimization
+lastUpdated: "2025-01-01"
 ---

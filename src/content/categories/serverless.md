@@ -1,6 +1,6 @@
 ---
 title: Serverless
 slug: serverless
-description: Serverless architectures and platforms
-lastUpdated: "2025-04-20"
+description: Serverless security, Function-as-a-Service, and cloud-native architectures
+lastUpdated: "2025-01-01"
 ---
