@@ -42,7 +42,7 @@ export const FooterLinks = [
 export const Settings = {
     GoogleAnalytics: {
         enable: true,
-        id: 'G-3FZ9XRHGG9',
+        id: 'G-1B0G2Q344G',
     },
 
     // See https://github.com/umami-software/umami
@@ -54,16 +54,16 @@ export const Settings = {
     Comment: {
         // Please note that the environment value here is `string` type on Cloudflare Pages
         // If you want to disable the comment system, please delete the `COMMENT_ENABLE` environment variable not just set it to `false`.
-        enable: !!import.meta.env.COMMENT_ENABLE,
+        enable: true,
 
         // please visit https://giscus.app/ to learn how to configure it.
         // You can also check out this article: https://liruifengv.com/posts/add-comments-to-astro/.
         // enable: true,
         giscus: {
-            repo: 'Amiynarh/aminalawal-blog',
-            repoId: 'R_kgDOOY0NQQ',
+            repo: 'ToluGIT/Tolu-blog',
+            repoId: 'R_kgDOPFwc6Q',
             category: 'Announcements',
-            categoryId: 'DIC_kwDOOY0NQc4CpDRk',
+            categoryId: 'DIC_kwDOPFwc6c4CsYk8',
             darkTheme: 'noborder_gray',
             lightTheme: 'light',
         },

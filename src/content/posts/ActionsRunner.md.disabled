@@ -94,6 +94,7 @@ Use the provided manifest files (`gha-runner-scale-set-controller.yaml` and `gha
 - Carefully adjust these values to match your specific environment and requirements.
 - Ensure the `githubConfigSecret` exists in your Kubernetes cluster with the appropriate credentials.
 
+
 ### 3. Authentication Configuration:
 
 In the `gha-runner-scale-set` Helm values file, choose your authentication method:

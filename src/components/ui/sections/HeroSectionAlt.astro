@@ -43,72 +43,110 @@ interface Props {
       ></path>
     </svg>
   </div>
-  <div class="absolute left-[85%] top-0 scale-75">
+  <div class="absolute left-[85%] -top-4 scale-75">
     <svg
-        width="64"
-        height="64"
+        width="72"
+        height="72"
         fill="none"
         stroke-width="1.5"
-        color="#fbbf24"
         viewBox="0 0 24 24"
+        class="animate-pulse"
     >
+      <!-- Security Shield -->
       <path
-          stroke="#fbbf24"
+          stroke="#3b82f6"
+          fill="rgba(59, 130, 246, 0.1)"
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"
+          d="M12 2L3 6v6.09c0 5.81 3.84 11.29 9 12.91 5.16-1.62 9-7.1 9-12.91V6l-9-4z"
       ></path>
+      <!-- Code brackets inside shield -->
       <path
-          fill="#fbbf24"
-          stroke="#fbbf24"
+          stroke="#60a5fa"
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+          stroke-width="2"
+          d="M8 10l-2 2 2 2M16 10l2 2-2 2"
       ></path>
-      <path
-          stroke="#fbbf24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M5 10.5V9M5 15v-1.5"
-      ></path>
-      <path
-          fill="#fbbf24"
-          stroke="#fbbf24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M5 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM19 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
-      ></path>
-      <path
-          stroke="#fbbf24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M10.5 19H9M15 19h-1.5"
-      ></path>
+      <!-- Lock icon in center -->
+      <circle
+          cx="12"
+          cy="12"
+          r="1.5"
+          fill="#3b82f6"
+      ></circle>
+      <!-- Floating dots for tech effect -->
+      <circle cx="6" cy="8" r="0.8" fill="#60a5fa" opacity="0.6"></circle>
+      <circle cx="18" cy="9" r="0.8" fill="#60a5fa" opacity="0.4"></circle>
+      <circle cx="7" cy="16" r="0.8" fill="#60a5fa" opacity="0.5"></circle>
     </svg>
   </div>
   <div
       class="absolute bottom-[5%] left-[60%] scale-[.6] xl:bottom-[15%] xl:left-[35%]"
   >
     <svg
-        width="64"
-        height="64"
+        width="80"
+        height="80"
         fill="none"
         stroke-width="1.5"
-        color="#a3a3a3"
         viewBox="0 0 24 24"
+        class="animate-bounce"
+        style="animation-duration: 3s;"
     >
+      <!-- CI/CD Pipeline Flow -->
+      <!-- Code Repository -->
+      <rect
+          x="2"
+          y="3"
+          width="4"
+          height="3"
+          rx="1"
+          stroke="#3b82f6"
+          fill="rgba(59, 130, 246, 0.2)"
+      ></rect>
+      
+      <!-- Build Stage -->
+      <circle
+          cx="12"
+          cy="8"
+          r="2"
+          stroke="#60a5fa"
+          fill="rgba(96, 165, 250, 0.2)"
+      ></circle>
+      
+      <!-- Deploy Stage -->
+      <rect
+          x="18"
+          y="15"
+          width="4"
+          height="3"
+          rx="1"
+          stroke="#3b82f6"
+          fill="rgba(59, 130, 246, 0.2)"
+      ></rect>
+      
+      <!-- Pipeline Arrows -->
       <path
-          stroke="#a3a3a3"
+          stroke="#60a5fa"
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M5.164 17c.29-1.049.67-2.052 1.132-3M11.5 7.794A16.838 16.838 0 0 1 14 6.296M4.5 22a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
+          stroke-width="2"
+          d="M6 4.5L10 6.5M14 8L18 16"
       ></path>
+      
+      <!-- Success Checkmarks -->
       <path
-          stroke="#a3a3a3"
+          stroke="#10b981"
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M9.5 12a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5ZM19.5 7a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
+          stroke-width="2"
+          d="M3 4.5L4 5.5L6 3.5M11 8L12 9L14 7M19 16L20 17L22 15"
       ></path>
+      
+      <!-- Floating particles -->
+      <circle cx="8" cy="12" r="0.5" fill="#60a5fa" opacity="0.7"></circle>
+      <circle cx="15" cy="5" r="0.5" fill="#60a5fa" opacity="0.5"></circle>
+      <circle cx="6" cy="20" r="0.5" fill="#60a5fa" opacity="0.6"></circle>
     </svg>
   </div>
   <!-- Hero Section Heading -->
