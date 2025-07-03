@@ -1,0 +1,175 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  code-quality:
+    name: Code Quality & Security
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Security audit
+        run: npm audit
+        continue-on-error: true
+
+      - name: Basic validation
+        run: |
+          echo "Basic validation completed"
+          test -f index.html
+          test -f assets/css/style.css
+          test -f assets/js/script.js
+
+  performance-testing:
+    name: Performance & Accessibility Testing
+    runs-on: ubuntu-latest
+    needs: code-quality
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start local server
+        run: |
+          npm run dev &
+          sleep 10
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          configPath: './lighthouserc.json'
+          uploadArtifacts: false
+          temporaryPublicStorage: false
+          
+
+  security-scan:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    needs: code-quality
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Check for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          extra_args: --only-verified
+
+  build-test:
+    name: Build & Integration Test
+    runs-on: ubuntu-latest
+    needs: [code-quality, performance-testing, security-scan]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Test deployment readiness
+        run: |
+          # Check if all critical files exist
+          test -f index.html
+          test -f assets/css/style.css
+          test -f assets/js/script.js
+          
+          # Validate HTML structure
+          grep -q "data-theme" index.html
+          grep -q "theme-toggle" index.html
+          
+          # Check for performance optimizations
+          grep -q "loading=\"lazy\"" index.html
+          
+          echo "Build validation passed"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: |
+            index.html
+            assets/
+            .github/
+            *.json
+            *.md
+
+  notification:
+    name: Notify Status
+    runs-on: ubuntu-latest
+    needs: [build-test]
+    if: always()
+    
+    steps:
+      - name: Notify success
+        if: needs.build-test.result == 'success'
+        run: |
+          echo "🎉 All CI checks passed successfully!"
+          echo "Ready for deployment to production"
+
+      - name: Notify failure
+        if: needs.build-test.result == 'failure'
+        run: |
+          echo "CI pipeline failed"
+          echo "Please check the logs and fix issues before deployment"
+          exit 1
